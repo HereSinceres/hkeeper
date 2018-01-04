@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+    <style>
+        #app {
+            text-align: center;
+        }
+
+        p {
+            font-size: 26px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 8px 10px;
+            background: #fff;
+            border: 1px solid #333;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p>state：{{ count }}</p>
+        <p>getter值（state+10）：{{computedCount}}</p>
+        <p>
+            <button @click="increment">+1</button>
+            <button @click="decrement">-1</button>
+            <button @click="incrementAction">等待随机时间+随机数</button>
+        </p>
+    </div>
+</body>
+<script src="./index.js"></script>
+
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "hkeeper",
+  "version": "0.0.3",
+  "description": "状态管理工具，启发与vuxe redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "watch": "parcel watch ./example/index.html",
+    "dev": "parcel ./example/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HereSinceres/hkeeper.git"
+  },
+  "keywords": [
+    "state"
+  ],
+  "author": "xukai12",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HereSinceres/hkeeper/issues"
+  },
+  "homepage": "https://github.com/HereSinceres/hkeeper#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.4.1"
+  }
+}
