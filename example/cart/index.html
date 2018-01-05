@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+    <style>
+        #app {
+            text-align: left;
+        }
+
+        p {
+            font-size: 26px;
+            margin: 10px;
+        }
+
+        .p-right {
+            float: right;
+        }
+
+        button {
+            padding: 8px 10px;
+            background: #fff;
+            border: 1px solid #333;
+            outline: none;
+        }
+
+        .card-btn-container {
+            text-align: right;
+            margin: 10px;
+        }
+
+        .card-contatiner {
+            border: 2px solid red;
+            position: relative;
+            margin-top: 30px;
+            padding-top: 20px;
+        }
+
+        .card-contatiner::before {
+            position: absolute;
+            content: '商品';
+            top: -14px;
+            background: #fff;
+            padding: 0 10px;
+            left: 7px;
+            color: blue;
+        }
+
+        .card-contatiner--cart::before {
+            content: '购物车';
+
+        }
+
+        .card-item {
+            margin: 10px 8px;
+            border-bottom: 1px solid #808080;
+            padding: 10px 0;
+
+        }
+
+        .card-item .card-btn-container {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="card-contatiner">
+            <section v-for='item in proList' class="card-item">
+                {{item.title}}:💰{{item.price}}
+                <span class="p-right">
+                    数量:{{item.inventory}}
+                </span>
+                <section class="card-btn-container">
+                    <button v-on:click='addToCart(item)'>Add To Cart</button>
+                </section>
+            </section>
+        </div>
+        <div class="card-contatiner card-contatiner--cart">
+            <section v-for='item in cartProducts' class="card-item">
+                {{item.title}}
+                <span class="p-right">
+                    💰{{item.price}}*数量:{{item.quantity}}
+                </span>
+            </section>
+            <section v-if='!cartProducts||cartProducts.length==0' class="card-item">
+                空的购物车
+            </section> 
+            <section   class="card-item">
+                    Total: 💰 {{total}}
+            </section>  
+            <section v-if='checkoutStatus' class="card-item">
+                结算信息： {{checkoutStatus}}
+            </section>
+            <section class="card-btn-container" v-if='cartProducts && cartProducts.length>0'>
+                <button v-on:click='checkout'>checkout</button>
+            </section>
+        </div>
+    </div>
+</body>
+<script src="./index.js"></script>
+
+</html>

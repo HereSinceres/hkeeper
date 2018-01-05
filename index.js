@@ -34,7 +34,6 @@ export default
         this.dispatch = (...args) => {
             dispatch.apply(this, args);
         };
-        this.name = options.name;
         this.actions = Object.create(null);
         this.getters = Object.create(null);
         this._setupMutations(options.mutations);
@@ -48,8 +47,8 @@ export default
         return this._vm._data
     }
 
-    set state(v) {
-        throw new Error('[hKeeper] hKeeper root state is read only.')
+    set state(v) { 
+        throw new Error('[hKeeper] hKeeper state is read only.')
     }
     dispatch(type, ...payload) {
         const mutation = this._mutations[type]
